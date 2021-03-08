@@ -75,7 +75,7 @@ def ReqInstall(REQ_DICT, REQ_ZIP_DIR, BDENTAL_Modules_DIR):
     
     Pkgs = list(REQ_DICT.values())
     Preffix = sys.platform
-    ZippedModuleFiles = [f"{Preffix}_opencv.zip", f"{Preffix}_SimpleITK.zip", f"{Preffix}_vtk.zip"]
+    ZippedModuleFiles = [f"{Preffix}_{Pkg}.zip" for Pkg in Pkgs]
     condition = all([(mod in os.listdir(REQ_ZIP_DIR)) for mod in ZippedModuleFiles])
 
     if condition:
